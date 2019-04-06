@@ -12,7 +12,7 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
-    event.preventDefault();
+    // event.preventDefault();
     this.props.addSmurfServer(this.state.newSmurf);
     // add code to create the smurf using the api
 
@@ -23,6 +23,8 @@ class SmurfForm extends Component {
       height: ''
     }
     });
+    this.props.history.push('/');
+    window.location.reload();
   }
 
   handleInputChange = e => {
