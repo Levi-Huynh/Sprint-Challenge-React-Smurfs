@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import NavBar from './components/NavBar';
 
 
 import {
@@ -78,8 +79,10 @@ window.location.reload();
     return (
       <div className="App">
     
-        <SmurfForm addSmurfServer={this.addSmurfServer.bind(this)} />
-        <Smurfs smurfs={this.state.smurfs} />
+    <Route path="/" component={NavBar}/>
+      <Route exact path ="/smurf-form" render={props => (<SmurfForm {...props} addSmurfServer={this.addSmurfServer}/>)}/>
+
+       <Route exact path ="/" render={props => (<Smurfs {...props}  smurfs={this.state.smurfs} />)}/>
       </div>
     );
   }
